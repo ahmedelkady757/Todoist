@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TBC-00-000">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="TBC-sc-000">
+            <objects>
+                <tabBarController id="TBC-00-000" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="TBC-tb-001">
+                        <rect key="frame" x="0.0" y="813" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="TOD-NC-001" kind="relationship" relationship="viewControllers" id="rel-todo"/>
+                        <segue destination="DOI-NC-001" kind="relationship" relationship="viewControllers" id="rel-doing"/>
+                        <segue destination="DON-NC-001" kind="relationship" relationship="viewControllers" id="rel-done"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TBC-fr-000" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-700" y="0.0"/>
+        </scene>
+        <!--Todo-->
+        <scene sceneID="TOD-NC-sc">
+            <objects>
+                <navigationController id="TOD-NC-001" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Todo" image="checklist" catalog="system" id="TOD-tbi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TOD-nb-001">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TOD-VC-001" kind="relationship" relationship="rootViewController" id="TOD-seg-root"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TOD-NC-fr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="-750"/>
+        </scene>
+        <!--Todo-->
+        <scene sceneID="TOD-VC-sc">
+            <objects>
+                <viewController id="TOD-VC-001" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TOD-v-001">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="scaleToFill" placeholder="Search tasks…" translatesAutoresizingMaskIntoConstraints="NO" id="TOD-sb-001">
+                                <rect key="frame" x="0.0" y="162" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TOD-seg-001">
+                                <rect key="frame" x="16" y="226" width="361" height="32"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Low"/>
+                                    <segment title="Medium"/>
+                                    <segment title="High"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="TOD-tv-001">
+                                <rect key="frame" x="0.0" y="265" width="393" height="587"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TOD-sa-001"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TOD-sb-001" firstAttribute="top" secondItem="TOD-sa-001" secondAttribute="top" id="c-tod-1"/>
+                            <constraint firstItem="TOD-tv-001" firstAttribute="bottom" secondItem="TOD-v-001" secondAttribute="bottom" id="c-tod-10"/>
+                            <constraint firstItem="TOD-sb-001" firstAttribute="leading" secondItem="TOD-v-001" secondAttribute="leading" id="c-tod-2"/>
+                            <constraint firstItem="TOD-sb-001" firstAttribute="trailing" secondItem="TOD-v-001" secondAttribute="trailing" id="c-tod-3"/>
+                            <constraint firstItem="TOD-seg-001" firstAttribute="top" secondItem="TOD-sb-001" secondAttribute="bottom" constant="8" id="c-tod-4"/>
+                            <constraint firstItem="TOD-seg-001" firstAttribute="leading" secondItem="TOD-v-001" secondAttribute="leading" constant="16" id="c-tod-5"/>
+                            <constraint firstItem="TOD-seg-001" firstAttribute="trailing" secondItem="TOD-v-001" secondAttribute="trailing" constant="-16" id="c-tod-6"/>
+                            <constraint firstItem="TOD-tv-001" firstAttribute="top" secondItem="TOD-seg-001" secondAttribute="bottom" constant="8" id="c-tod-7"/>
+                            <constraint firstItem="TOD-tv-001" firstAttribute="leading" secondItem="TOD-v-001" secondAttribute="leading" id="c-tod-8"/>
+                            <constraint firstItem="TOD-tv-001" firstAttribute="trailing" secondItem="TOD-v-001" secondAttribute="trailing" id="c-tod-9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Todo" id="TOD-ni-001"/>
+                    <connections>
+                        <outlet property="prioritySegment" destination="TOD-seg-001" id="out-tod-seg"/>
+                        <outlet property="searchBar" destination="TOD-sb-001" id="out-tod-sb"/>
+                        <outlet property="tableView" destination="TOD-tv-001" id="out-tod-tv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TOD-VC-fr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700" y="-750"/>
+        </scene>
+        <!--Doing-->
+        <scene sceneID="DOI-NC-sc">
+            <objects>
+                <navigationController id="DOI-NC-001" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Doing" image="square.and.pencil" catalog="system" id="DOI-tbi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DOI-nb-001">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DOI-VC-001" kind="relationship" relationship="rootViewController" id="DOI-seg-root"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DOI-NC-fr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Doing-->
+        <scene sceneID="DOI-VC-sc">
+            <objects>
+                <viewController id="DOI-VC-001" customClass="DoingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DOI-v-001">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="scaleToFill" placeholder="Search tasks…" translatesAutoresizingMaskIntoConstraints="NO" id="DOI-sb-001">
+                                <rect key="frame" x="0.0" y="162" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DOI-seg-001">
+                                <rect key="frame" x="16" y="226" width="361" height="32"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Low"/>
+                                    <segment title="Medium"/>
+                                    <segment title="High"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="DOI-tv-001">
+                                <rect key="frame" x="0.0" y="265" width="393" height="587"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DOI-sa-001"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DOI-sb-001" firstAttribute="top" secondItem="DOI-sa-001" secondAttribute="top" id="c-doi-1"/>
+                            <constraint firstItem="DOI-tv-001" firstAttribute="bottom" secondItem="DOI-v-001" secondAttribute="bottom" id="c-doi-10"/>
+                            <constraint firstItem="DOI-sb-001" firstAttribute="leading" secondItem="DOI-v-001" secondAttribute="leading" id="c-doi-2"/>
+                            <constraint firstItem="DOI-sb-001" firstAttribute="trailing" secondItem="DOI-v-001" secondAttribute="trailing" id="c-doi-3"/>
+                            <constraint firstItem="DOI-seg-001" firstAttribute="top" secondItem="DOI-sb-001" secondAttribute="bottom" constant="8" id="c-doi-4"/>
+                            <constraint firstItem="DOI-seg-001" firstAttribute="leading" secondItem="DOI-v-001" secondAttribute="leading" constant="16" id="c-doi-5"/>
+                            <constraint firstItem="DOI-seg-001" firstAttribute="trailing" secondItem="DOI-v-001" secondAttribute="trailing" constant="-16" id="c-doi-6"/>
+                            <constraint firstItem="DOI-tv-001" firstAttribute="top" secondItem="DOI-seg-001" secondAttribute="bottom" constant="8" id="c-doi-7"/>
+                            <constraint firstItem="DOI-tv-001" firstAttribute="leading" secondItem="DOI-v-001" secondAttribute="leading" id="c-doi-8"/>
+                            <constraint firstItem="DOI-tv-001" firstAttribute="trailing" secondItem="DOI-v-001" secondAttribute="trailing" id="c-doi-9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Doing" id="DOI-ni-001"/>
+                    <connections>
+                        <outlet property="prioritySegment" destination="DOI-seg-001" id="out-doi-seg"/>
+                        <outlet property="searchBar" destination="DOI-sb-001" id="out-doi-sb"/>
+                        <outlet property="tableView" destination="DOI-tv-001" id="out-doi-tv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DOI-VC-fr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700" y="0.0"/>
+        </scene>
+        <!--Done-->
+        <scene sceneID="DON-NC-sc">
+            <objects>
+                <navigationController id="DON-NC-001" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Done" image="checkmark.seal.fill" catalog="system" id="DON-tbi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DON-nb-001">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DON-VC-001" kind="relationship" relationship="rootViewController" id="DON-seg-root"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DON-NC-fr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="750"/>
+        </scene>
+        <!--Done-->
+        <scene sceneID="DON-VC-sc">
+            <objects>
+                <viewController id="DON-VC-001" customClass="DoneViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DON-v-001">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="scaleToFill" placeholder="Search tasks…" translatesAutoresizingMaskIntoConstraints="NO" id="DON-sb-001">
+                                <rect key="frame" x="0.0" y="162" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DON-seg-001">
+                                <rect key="frame" x="16" y="226" width="361" height="32"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Low"/>
+                                    <segment title="Medium"/>
+                                    <segment title="High"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="DON-tv-001">
+                                <rect key="frame" x="0.0" y="265" width="393" height="587"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DON-sa-001"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DON-sb-001" firstAttribute="top" secondItem="DON-sa-001" secondAttribute="top" id="c-don-1"/>
+                            <constraint firstItem="DON-tv-001" firstAttribute="bottom" secondItem="DON-v-001" secondAttribute="bottom" id="c-don-10"/>
+                            <constraint firstItem="DON-sb-001" firstAttribute="leading" secondItem="DON-v-001" secondAttribute="leading" id="c-don-2"/>
+                            <constraint firstItem="DON-sb-001" firstAttribute="trailing" secondItem="DON-v-001" secondAttribute="trailing" id="c-don-3"/>
+                            <constraint firstItem="DON-seg-001" firstAttribute="top" secondItem="DON-sb-001" secondAttribute="bottom" constant="8" id="c-don-4"/>
+                            <constraint firstItem="DON-seg-001" firstAttribute="leading" secondItem="DON-v-001" secondAttribute="leading" constant="16" id="c-don-5"/>
+                            <constraint firstItem="DON-seg-001" firstAttribute="trailing" secondItem="DON-v-001" secondAttribute="trailing" constant="-16" id="c-don-6"/>
+                            <constraint firstItem="DON-tv-001" firstAttribute="top" secondItem="DON-seg-001" secondAttribute="bottom" constant="8" id="c-don-7"/>
+                            <constraint firstItem="DON-tv-001" firstAttribute="leading" secondItem="DON-v-001" secondAttribute="leading" id="c-don-8"/>
+                            <constraint firstItem="DON-tv-001" firstAttribute="trailing" secondItem="DON-v-001" secondAttribute="trailing" id="c-don-9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Done" id="DON-ni-001"/>
+                    <connections>
+                        <outlet property="prioritySegment" destination="DON-seg-001" id="out-don-seg"/>
+                        <outlet property="searchBar" destination="DON-sb-001" id="out-don-sb"/>
+                        <outlet property="tableView" destination="DON-tv-001" id="out-don-tv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DON-VC-fr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700" y="750"/>
+        </scene>
+        <!--New Task-->
+        <scene sceneID="ADD-VC-sc">
+            <objects>
+                <viewController storyboardIdentifier="AddTaskViewController" id="ADD-VC-001" customClass="AddTaskViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ADD-v-001">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-sv-001">
+                                <rect key="frame" x="0.0" y="118" width="393" height="734"/>
+                                <subviews>
+                                    <stackView contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-stk-001">
+                                        <rect key="frame" x="16" y="16.000000000000028" width="361" height="508.66666666666674"/>
+                                        <subviews>
+                                            <label contentMode="scaleToFill" text="Task Title *" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-lbl-title">
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="15.666666666666666"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <textField contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter task title" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-tf-001">
+                                                <rect key="frame" x="0.0" y="27.666666666666657" width="361" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label contentMode="scaleToFill" text="Description" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-lbl-desc">
+                                                <rect key="frame" x="0.0" y="73.666666666666657" width="361" height="15.666666666666671"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <textView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-tv-001">
+                                                <rect key="frame" x="0.0" y="101.33333333333334" width="361" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="ADD-tv-h"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textView>
+                                            <label contentMode="scaleToFill" text="Priority" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-lbl-pri">
+                                                <rect key="frame" x="0.0" y="213.33333333333331" width="361" height="15.666666666666657"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-pseg-001">
+                                                <rect key="frame" x="0.0" y="241" width="361" height="32"/>
+                                                <segments>
+                                                    <segment title="Low"/>
+                                                    <segment title="Medium"/>
+                                                    <segment title="High"/>
+                                                </segments>
+                                            </segmentedControl>
+                                            <stackView contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-sw-row">
+                                                <rect key="frame" x="0.0" y="284" width="361" height="31"/>
+                                                <subviews>
+                                                    <label contentMode="scaleToFill" horizontalHuggingPriority="249" text="Enable reminder" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-lbl-en">
+                                                        <rect key="frame" x="0.0" y="6.6666666666666856" width="300" height="18"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <switch contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-sw-001">
+                                                        <rect key="frame" x="312" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="reminderSwitchToggled:" destination="ADD-VC-001" eventType="valueChanged" id="act-add-sw"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <label hidden="YES" contentMode="scaleToFill" text="Select Date &amp; Time" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-lbl-dp">
+                                                <rect key="frame" x="0.0" y="321" width="361" height="0.0"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-dp-001">
+                                                <rect key="frame" x="0.0" y="321" width="361" height="14"/>
+                                            </datePicker>
+                                            <label contentMode="scaleToFill" text="Attachments (optional)" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-lbl-att">
+                                                <rect key="frame" x="0.0" y="327" width="361" height="15.666666666666686"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-btn-files">
+                                                <rect key="frame" x="0.0" y="354.66666666666669" width="361" height="30"/>
+                                                <state key="normal" title="📎  Pick Files"/>
+                                                <connections>
+                                                    <action selector="pickFilesTapped:" destination="ADD-VC-001" eventType="touchUpInside" id="act-add-files"/>
+                                                </connections>
+                                            </button>
+                                            <stackView contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-fn-stk">
+                                                <rect key="frame" x="0.0" y="396.66666666666663" width="361" height="50"/>
+                                            </stackView>
+                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-btn-save">
+                                                <rect key="frame" x="0.0" y="458.66666666666663" width="361" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="ADD-btn-save-h"/>
+                                                </constraints>
+                                                <state key="normal" title="Save Task"/>
+                                                <connections>
+                                                    <action selector="saveTapped:" destination="ADD-VC-001" eventType="touchUpInside" id="act-add-save"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="508.66666666666674" id="f8u-QX-YTj"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ADD-stk-001" firstAttribute="bottom" secondItem="ADD-sv-001" secondAttribute="bottom" constant="-16" id="c-add-stk-b"/>
+                                    <constraint firstItem="ADD-stk-001" firstAttribute="leading" secondItem="ADD-sv-001" secondAttribute="leading" constant="16" id="c-add-stk-l"/>
+                                    <constraint firstItem="ADD-stk-001" firstAttribute="trailing" secondItem="ADD-sv-001" secondAttribute="trailing" constant="-16" id="c-add-stk-r"/>
+                                    <constraint firstItem="ADD-stk-001" firstAttribute="top" secondItem="ADD-sv-001" secondAttribute="top" constant="16" id="c-add-stk-t"/>
+                                    <constraint firstItem="ADD-stk-001" firstAttribute="width" secondItem="ADD-sv-001" secondAttribute="width" constant="-32" id="c-add-stk-w"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ADD-sa-001"/>
+                        <color key="backgroundColor" red="0.94899999999999995" green="0.94899999999999995" blue="0.96899999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ADD-sv-001" firstAttribute="bottom" secondItem="ADD-v-001" secondAttribute="bottom" id="c-add-sv-b"/>
+                            <constraint firstItem="ADD-sv-001" firstAttribute="leading" secondItem="ADD-v-001" secondAttribute="leading" id="c-add-sv-l"/>
+                            <constraint firstItem="ADD-sv-001" firstAttribute="trailing" secondItem="ADD-v-001" secondAttribute="trailing" id="c-add-sv-r"/>
+                            <constraint firstItem="ADD-sv-001" firstAttribute="top" secondItem="ADD-sa-001" secondAttribute="top" id="c-add-sv-t"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Task" id="ADD-ni-001">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ADD-cancel-bbi">
+                            <connections>
+                                <action selector="cancelTapped:" destination="ADD-VC-001" id="act-add-cancel"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="ADD-dp-001" id="out-add-dp"/>
+                        <outlet property="datePickerLabel" destination="ADD-lbl-dp" id="out-add-dplbl"/>
+                        <outlet property="descriptionView" destination="ADD-tv-001" id="out-add-tvw"/>
+                        <outlet property="fileNamesStack" destination="ADD-fn-stk" id="out-add-fnstk"/>
+                        <outlet property="pickFilesButton" destination="ADD-btn-files" id="out-add-pfbtn"/>
+                        <outlet property="prioritySegment" destination="ADD-pseg-001" id="out-add-pseg"/>
+                        <outlet property="reminderSwitch" destination="ADD-sw-001" id="out-add-sw"/>
+                        <outlet property="saveButton" destination="ADD-btn-save" id="out-add-savebtn"/>
+                        <outlet property="scrollView" destination="ADD-sv-001" id="out-add-sv"/>
+                        <outlet property="titleField" destination="ADD-tf-001" id="out-add-tf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ADD-VC-fr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500" y="-750"/>
+        </scene>
+        <!--Edit Task-->
+        <scene sceneID="EDT-VC-sc">
+            <objects>
+                <viewController storyboardIdentifier="EditTaskViewController" id="EDT-VC-001" customClass="EditTaskViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EDT-v-001">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-sv-001">
+                                <rect key="frame" x="0.0" y="118" width="393" height="734"/>
+                                <subviews>
+                                    <stackView contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-stk-001">
+                                        <rect key="frame" x="16" y="16" width="361" height="619"/>
+                                        <subviews>
+                                            <label contentMode="scaleToFill" text="Task Title *" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-lbl-title">
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="15.666666666666666"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <textField contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Task title" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-tf-001">
+                                                <rect key="frame" x="0.0" y="27.666666666666657" width="361" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label contentMode="scaleToFill" text="Description" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-lbl-desc">
+                                                <rect key="frame" x="0.0" y="73.666666666666657" width="361" height="15.666666666666671"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <textView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-tv-001">
+                                                <rect key="frame" x="0.0" y="101.33333333333334" width="361" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="EDT-tv-h"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textView>
+                                            <label contentMode="scaleToFill" text="Status" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-lbl-status">
+                                                <rect key="frame" x="0.0" y="213.33333333333331" width="361" height="15.666666666666657"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-sseg-001">
+                                                <rect key="frame" x="0.0" y="241" width="361" height="32"/>
+                                                <segments>
+                                                    <segment title="Todo"/>
+                                                    <segment title="Doing"/>
+                                                    <segment title="Done"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="statusSegmentChanged:" destination="EDT-VC-001" eventType="valueChanged" id="act-edt-status"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <label contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" numberOfLines="2" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-hint-lbl">
+                                                <rect key="frame" x="0.0" y="284" width="361" height="0.0"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="1" green="0.58399999999999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </label>
+                                            <label contentMode="scaleToFill" text="Priority" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-lbl-pri">
+                                                <rect key="frame" x="0.0" y="296" width="361" height="15.666666666666686"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-pseg-001">
+                                                <rect key="frame" x="0.0" y="323.66666666666669" width="361" height="32"/>
+                                                <segments>
+                                                    <segment title="Low"/>
+                                                    <segment title="Medium"/>
+                                                    <segment title="High"/>
+                                                </segments>
+                                            </segmentedControl>
+                                            <label contentMode="scaleToFill" text="Reminder Date" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-lbl-rem">
+                                                <rect key="frame" x="0.0" y="366.66666666666669" width="361" height="15.666666666666686"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <stackView contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-sw-row">
+                                                <rect key="frame" x="0.0" y="394.33333333333337" width="361" height="31"/>
+                                                <subviews>
+                                                    <label contentMode="scaleToFill" horizontalHuggingPriority="249" text="Enable reminder" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-lbl-en">
+                                                        <rect key="frame" x="0.0" y="6.6666666666666288" width="300" height="18"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <switch contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-sw-001">
+                                                        <rect key="frame" x="312" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="reminderSwitchToggled:" destination="EDT-VC-001" eventType="valueChanged" id="act-edt-sw"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <label hidden="YES" contentMode="scaleToFill" text="Select Date &amp; Time" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-lbl-dp">
+                                                <rect key="frame" x="0.0" y="431.33333333333337" width="361" height="0.0"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-dp-001">
+                                                <rect key="frame" x="0.0" y="431.33333333333337" width="361" height="14"/>
+                                            </datePicker>
+                                            <label contentMode="scaleToFill" text="Attachments" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-lbl-att">
+                                                <rect key="frame" x="0.0" y="437.33333333333337" width="361" height="15.666666666666686"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-btn-files">
+                                                <rect key="frame" x="0.0" y="465" width="361" height="30"/>
+                                                <state key="normal" title="📎  Add Files"/>
+                                                <connections>
+                                                    <action selector="addFileTapped:" destination="EDT-VC-001" eventType="touchUpInside" id="act-edt-files"/>
+                                                </connections>
+                                            </button>
+                                            <stackView contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-fn-stk">
+                                                <rect key="frame" x="0.0" y="507" width="361" height="50"/>
+                                            </stackView>
+                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-btn-save">
+                                                <rect key="frame" x="0.0" y="569" width="361" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="EDT-btn-save-h"/>
+                                                </constraints>
+                                                <state key="normal" title="Save Changes"/>
+                                                <connections>
+                                                    <action selector="saveTapped:" destination="EDT-VC-001" eventType="touchUpInside" id="act-edt-save"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="619" id="07F-WW-esT"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="EDT-stk-001" firstAttribute="bottom" secondItem="EDT-sv-001" secondAttribute="bottom" constant="-16" id="c-edt-stk-b"/>
+                                    <constraint firstItem="EDT-stk-001" firstAttribute="leading" secondItem="EDT-sv-001" secondAttribute="leading" constant="16" id="c-edt-stk-l"/>
+                                    <constraint firstItem="EDT-stk-001" firstAttribute="trailing" secondItem="EDT-sv-001" secondAttribute="trailing" constant="-16" id="c-edt-stk-r"/>
+                                    <constraint firstItem="EDT-stk-001" firstAttribute="top" secondItem="EDT-sv-001" secondAttribute="top" constant="16" id="c-edt-stk-t"/>
+                                    <constraint firstItem="EDT-stk-001" firstAttribute="width" secondItem="EDT-sv-001" secondAttribute="width" constant="-32" id="c-edt-stk-w"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EDT-sa-001"/>
+                        <color key="backgroundColor" red="0.94899999999999995" green="0.94899999999999995" blue="0.96899999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EDT-sv-001" firstAttribute="bottom" secondItem="EDT-v-001" secondAttribute="bottom" id="c-edt-sv-b"/>
+                            <constraint firstItem="EDT-sv-001" firstAttribute="leading" secondItem="EDT-v-001" secondAttribute="leading" id="c-edt-sv-l"/>
+                            <constraint firstItem="EDT-sv-001" firstAttribute="trailing" secondItem="EDT-v-001" secondAttribute="trailing" id="c-edt-sv-r"/>
+                            <constraint firstItem="EDT-sv-001" firstAttribute="top" secondItem="EDT-sa-001" secondAttribute="top" id="c-edt-sv-t"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Task" id="EDT-ni-001">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="EDT-cancel-bbi">
+                            <connections>
+                                <action selector="cancelTapped:" destination="EDT-VC-001" id="act-edt-cancel"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addFileButton" destination="EDT-btn-files" id="out-edt-afbtn"/>
+                        <outlet property="datePicker" destination="EDT-dp-001" id="out-edt-dp"/>
+                        <outlet property="datePickerLabel" destination="EDT-lbl-dp" id="out-edt-dplbl"/>
+                        <outlet property="descriptionView" destination="EDT-tv-001" id="out-edt-tvw"/>
+                        <outlet property="fileListStack" destination="EDT-fn-stk" id="out-edt-fnstk"/>
+                        <outlet property="prioritySegment" destination="EDT-pseg-001" id="out-edt-pseg"/>
+                        <outlet property="reminderSwitch" destination="EDT-sw-001" id="out-edt-sw"/>
+                        <outlet property="saveButton" destination="EDT-btn-save" id="out-edt-savebtn"/>
+                        <outlet property="scrollView" destination="EDT-sv-001" id="out-edt-sv"/>
+                        <outlet property="statusHintLabel" destination="EDT-hint-lbl" id="out-edt-hint"/>
+                        <outlet property="statusSegment" destination="EDT-sseg-001" id="out-edt-sseg"/>
+                        <outlet property="titleField" destination="EDT-tf-001" id="out-edt-tf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EDT-VC-fr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500" y="0.0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checklist" catalog="system" width="128" height="107"/>
+        <image name="checkmark.seal.fill" catalog="system" width="128" height="124"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
